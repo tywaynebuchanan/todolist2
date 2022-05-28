@@ -2,7 +2,7 @@ import React from 'react'
 
 const Form = ({...propS}) => {
 
-    const {setInputText, inputText, setTodos, todos} = propS
+    const {setStatus,setInputText, inputText, setTodos, todos} = propS
 
     const inputTextHandler = (event) =>{
         const inputText = event.target.value;
@@ -23,6 +23,12 @@ const Form = ({...propS}) => {
       ])
         setInputText("");
     }
+
+    const statusHandler = (event) =>{
+      setStatus(event.target.value);
+      
+      
+    }
   return (
       
     <form>
@@ -35,7 +41,7 @@ const Form = ({...propS}) => {
       <i class="fas fa-plus-square"></i>
       </button>
       <div className="select">
-        <select name="todos" className="filter-todo">
+        <select onChange = {statusHandler}name="todos" className="filter-todo">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
